@@ -1,11 +1,8 @@
 node {
-  stage('SCM') {
-    checkout scm
+  stage('LS') {
+   sh 'ls'
   }
-  stage('SonarQube Analysis') {
-    def scannerHome = tool 'SonarScanner';
-    withSonarQubeEnv() {
-      sh "${scannerHome}/bin/sonar-scanner"
-    }
+  stage('Hello') {
+    sh 'echo "Hello World"'
   }
 }
