@@ -1,12 +1,18 @@
 {
   "dependencies": {
-    "bootstrap": "^5.3.3",
-    "firebase": "^11.0.2",
-    "jest": "^29.7.0",
-    "three": "^0.170.0"
+    "firebase": "^11.0.2"
   },
   "scripts": {
     "test": "jest",
-    "build" : "echo 'hello world !'" 
-  }
+    "build": "echo 'hello world !'"
+  },
+  "name": "neodon",
+  "version": "1.0.0",
+  "description": "Neodon Entreprise project",
+  "main": "src/js/main.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "author": "Jad El Karchi",
+  "license": "ISC"
 }
