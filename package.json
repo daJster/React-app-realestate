@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "firebase": "^11.0.2",
-    "parcel": "^2.13.0"
+    "parcel": "^2.13.2"
   },
   "scripts": {
     "test": "jest",
