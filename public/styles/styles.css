@@ -194,16 +194,17 @@ a {
     mask: var(--mask);
 
     .slider {
-      animation: slidein 20s linear infinite;
+      animation: slidein 60s linear infinite;
       white-space: nowrap;
       .logos {
         width: 100%;
         display: inline-block;
         
         .fab {
-          height: 60px;
-          margin-right: 20%;
-          animation: fade-in 0.5s ease;
+          height: 70px;
+          width: auto;
+          margin-right: 17%;
+          animation: fade-in 0.3s ease;
         }
       }
     }
@@ -214,7 +215,7 @@ a {
         transform: translate3d(0, 0, 0);
     }
     to {
-        transform: translate3d(-300%, 0, 0);
+        transform: translate3d(-400%, 0, 0);
     }
 }
 

@@ -10,7 +10,7 @@
   "name": "neodon",
   "version": "1.0.0",
   "description": "Neodon Entreprise project",
-  "main": "src/js/main.js",
+  "main": "public/js/main.js",
   "directories": {
     "doc": "docs"
   },
