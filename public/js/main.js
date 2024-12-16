@@ -20,3 +20,217 @@
 // const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 
+// navbar-toggler collapsed 
+// button-certify-navbar-53
+
+const listOfAnimatedDoms = [
+    {
+        dom: ".navbar",
+        animation: "fadeInDown",
+        subElement: false,
+        delay: 0
+    },
+    {
+        dom: ".title-text-11",
+        animation: "fadeInUp",
+        subElement: false,
+        delay: 0
+    },
+    {
+        dom: ".framer-text",
+        animation: "fadeInUp",
+        subElement: false,
+        delay: 0.1
+    },
+    {
+        dom: ".sub-text-title-12",
+        animation: "fadeInUp",
+        subElement: false,
+        delay: 0.2
+    },
+    {
+        dom: ".title-box-6",
+        animation: "fadeInUp",
+        subElement: false,
+        delay: 0
+    },
+    {
+        dom: ".container-slider-14",
+        animation: "fade",
+        subElement: false,
+        delay: 0
+    },
+    {
+        dom: ".h2-text-1st-container-features-17",
+        animation: "fadeInUp",
+        subElement: false,
+        delay: 0
+    },
+    {
+        dom: ".span-text-1st-container-features-18",
+        animation: "fadeInUp",
+        subElement: false,
+        delay: 0
+    },
+    {
+        dom: ".sub-text-title-features-43",
+        animation: "fadeInUp",
+        subElement: false,
+        delay: 0
+    },
+    {
+        dom: ".container-features-img-wrapper-1",
+        animation: "fadeInLeft",
+        subElement: false,
+        delay: 0
+    },
+    {
+        dom: ".container-features-text-wrapper-1",
+        animation: "fadeInRight",
+        subElement: true,
+        delay: 0.2
+    },
+    {
+        dom: ".container-card-features-1-animate-1",
+        animation: "fadeInUp",
+        subElement: true,
+        delay: 0
+    },
+    {
+        dom: ".container-card-features-1-animate-2",
+        animation: "fadeInUp",
+        subElement: true,
+        delay: 0.2
+    },
+    {
+        dom: ".container-features-img-wrapper-2",
+        animation: "fadeInRight",
+        subElement: false,
+        delay: 0
+    },
+    {
+        dom: ".container-features-text-wrapper-2",
+        animation: "fadeInLeft",
+        subElement: true,
+        delay: 0.2
+    },
+    {
+        dom: ".container-features-img-wrapper-3",
+        animation: "fadeInLeft",
+        subElement: false,
+        delay: 0
+    },
+    {
+        dom: ".container-features-text-wrapper-3",
+        animation: "fadeInRight",
+        subElement: true,
+        delay: 0.2
+    },
+    {
+        dom: ".container-card-features-2-animate-1",
+        animation: "fadeInUp",
+        subElement: true,
+        delay: 0.2
+    },
+    {
+        dom: ".container-card-features-2-animate-2",
+        animation: "fadeInUp",
+        subElement: true,
+        delay: 0.3
+    },
+    {
+        dom: ".values-title-dot-text",
+        animation: "fadeInUp",
+        subElement: false,
+        delay: 0
+    },
+    {
+        dom: ".h2-text-1st-container-features-17",
+        animation: "fadeInUp",
+        subElement: false,
+        delay: 0.1
+    },
+    {
+        dom: ".span-text-1st-container-features-18",
+        animation: "fadeInUp",
+        subElement: false,
+        delay: 0.2
+    },
+    {
+        dom: ".card-container-animate-1",
+        animation: "fadeInUp",
+        subElement: false,
+        delay: 0.2
+    },
+    {
+        dom: ".card-container-animate-2",
+        animation: "fadeInUp",
+        subElement: false,
+        delay: 0.3
+    },
+    {
+        dom: ".card-container-animate-3",
+        animation: "fadeInUp",
+        subElement: false,
+        delay: 0.4
+    },
+    {
+        dom: ".card-container-animate-4",
+        animation: "fadeInUp",
+        subElement: false,
+        delay: 0.5
+    },
+]
+
+
+const navbarToggler = document.querySelector('.navbar-toggler');
+const buttonCertify = document.getElementsByClassName('button-certify-navbar-53')[0];
+
+if (navbarToggler && buttonCertify) {
+    let isToggled = false; // Track the toggle state
+
+    navbarToggler.addEventListener('click', () => {
+        if (!isToggled) {
+            // First click: Hide the button
+            buttonCertify.style.display = 'none';
+        } else {
+            // Second click: Redisplay the button after 0.4 seconds
+            setTimeout(() => {
+                buttonCertify.style.display = 'block';
+            }, 400);
+        }
+
+        // Toggle the state
+        isToggled = !isToggled;
+    });
+} else {
+    console.error('Navbar toggler or button-certify element not found!');
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const observerOptions = {
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const animationClass = target.getAttribute('data-animation');
+                target.classList.add(animationClass);
+                observer.unobserve(target); // Animate only once
+            }
+        });
+    }, observerOptions);
+
+
+    // Register each element for observation
+    listOfAnimatedDoms.forEach(item => {
+        const elements = document.querySelectorAll(item.dom);
+        elements.forEach(el => {
+            el.style.animationDelay = `${item.delay}s`;
+            el.setAttribute('data-animation', item.animation); // Add animation name
+            observer.observe(el);
+        });
+    });
+});

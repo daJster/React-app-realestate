@@ -186,7 +186,7 @@ a {
     letter-spacing: -1px; 
     color: black; 
     font-size: 72px; 
-    width: 100vw;
+    width: 100%;
     font-weight: 600; 
     font-style: normal;
 }
@@ -240,7 +240,7 @@ a {
 .features-section-15 {
     width: 100vw;
     padding: 10px 0px;
-    gap : 100px;
+    gap: 50px;
 }
 
 
@@ -281,9 +281,6 @@ p {
 }
 
 
-.container-features {
-    margin-left: 30px;
-}
 
 .values-section-1 {
     width: 100vw;
@@ -308,8 +305,11 @@ p {
 
 
 .container-features-img-2 {
-    height: 630px;
-    width: 630px;
+    height: fit-content;
+}
+
+.container-features-img-wrapper-1 {
+    padding: 40px 40px; 
 }
 
 .row-features-element-21 {
@@ -317,10 +317,31 @@ p {
     padding: 10px 20px;
 }
 
+.container-card-desc {
+    width: 92%;
+}
+
+.row-middle-element-23 {
+    margin-left: 50px !important;
+}
+
+.container-features-text-wrapper-1 {
+    padding: 0px 50px !important;
+}
+
+.container-features-text-wrapper-2 {
+    padding: 0px 50px !important;
+}
+
+.container-features-text-wrapper-3 {
+    padding: 0px 50px !important;
+}
+
 @media screen and (max-width: 995px) {
 
     .title-text-11 {
         font-size: 30px;
+        width: 100vw;
     }
 
     .gradient-button {
@@ -343,20 +364,112 @@ p {
     .title-card-text {
         font-size: 23px;
     }
-
-    .container-features-img-2 {
-        height: 330px;
-        width: 330px;
-    }
-
-    .container-features-img {
-        padding: 20px;
-        margin-left: 6%;
-    }
     
     .features-section-15 {
         gap: 50px;
     }
 
+    .container-features-img-2 {
+        width: 100%;
+    }
 
+    .row-middle-element-23 {
+        margin-left: -20px !important;
+    }
+
+    .container-features-text-wrapper-1 {
+        padding: 0px 10px !important;
+        margin-left: 15px !important;
+    }
+    
+    .container-features-text-wrapper-2 {
+        padding: 0px 10px !important;
+        margin-left: 15px !important;
+    }
+    
+    .container-features-text-wrapper-3 {
+        padding: 0px 10px !important;
+        margin-left: 15px !important;
+    }
+    
+}
+
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeInUp, .fadeInDown, .fade, .fadeInLeft, .fadeInRight {
+    animation-duration: .7s;
+    animation-fill-mode: forwards;
+}
+
+.fadeInUp {
+    animation-name: fadeInUp;
+}
+
+.fadeInLeft {
+    animation-name: fadeInLeft
+}
+
+.fadeInRight {
+    animation-name: fadeInRight
+}
+
+.fadeInDown {
+    animation-name: fadeInDown;
+}
+
+.fade {
+    animation-name: fade;
 }
