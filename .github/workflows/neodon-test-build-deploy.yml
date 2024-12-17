@@ -50,7 +50,7 @@ jobs:
       - name: Upload public directory
         uses: actions/upload-artifact@v3
         with:
-          name: public-${{ github.run_id }}
+          name: public
           path: public/
 
   deploy:
@@ -62,7 +62,7 @@ jobs:
       - name: Download public directory
         uses: actions/download-artifact@v3
         with:
-          name: public-${{ github.run_id }}
+          name: public
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
