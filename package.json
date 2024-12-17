@@ -15,5 +15,9 @@
     "doc": "docs"
   },
   "author": "Jad El Karchi",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "process": "^0.11.10"
+  }
 }
