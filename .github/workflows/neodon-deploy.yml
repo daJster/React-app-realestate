@@ -1,0 +1,28 @@
+# This workflow will build the application and deploy it to Firebase Hosting
+name: Deploy to Firebase Hosting
+
+on:
+  workflow_run:
+    workflows: ["Build Application"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download public directory
+        uses: actions/download-artifact@v3
+        with:
+          name: public-dir
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NEODON_64DEC }}
+          channelId: live
+          projectId: neodon-64dec
