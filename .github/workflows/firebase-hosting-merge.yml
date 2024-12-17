@@ -18,14 +18,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # or your desired Node.js version
+          node-version: '20.0.0'  # or your desired Node.js version
 
       # Install project dependencies
       - name: Install dependencies
         run: npm install
 
       # Run your build script to bundle the project
-      - name: Bundle the website
+      - name: Bundle the project
         run: npm run build
 
       # Deploy to Firebase Hosting
