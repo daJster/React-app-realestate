@@ -1,4 +1,4 @@
-import ThreeGlobe from "../files/threeGlobe.js";
+import { ThreeGlobe } from "../files/threeGlobe.js";
 import { WebGLRenderer, Scene } from "../files/three.module.js";
 import {
 PerspectiveCamera,
