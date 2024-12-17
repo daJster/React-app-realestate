@@ -180,6 +180,12 @@ const listOfAnimatedDoms = [
         subElement: false,
         delay: 0.5
     },
+    {
+        dom:".container-sponsors-globe-wrapper-2",
+        animation: "fadeInRight",
+        subElement: false,
+        delay: 0.2
+    }
 ]
 
 
