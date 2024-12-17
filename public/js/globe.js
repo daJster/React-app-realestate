@@ -14,8 +14,8 @@ SphereGeometry,
 } from "../files/three.module.js";
 import { OrbitControls } from "../files/OrbitControls.js";
 // import { createGlowMesh } from "three-glow-mesh";
-import countries from "../files/globe-data-min.json";
-import travelHistory from "../files/my-flights.json";
+import countries from "../files/globe-data-min.json" assert {type: 'json'};
+import travelHistory from "../files/my-flights.json" assert {type: 'json'};
 
 const container = document.getElementsByClassName("globe-container")[0];
 var renderer, camera, scene, controls;
