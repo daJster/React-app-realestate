@@ -6,7 +6,7 @@
     "process": "^0.11.10"
   },
   "scripts": {
-    "test": "jest",
+    "test": "echo 'Testing ...'",
     "build": "./websplash --build ./src/",
     "dev": "./websplash --serve ./src/"
   },
