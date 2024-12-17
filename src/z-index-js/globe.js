@@ -1,5 +1,5 @@
-import { ThreeGlobe } from "../files/threeGlobe.js";
-import { WebGLRenderer, Scene } from "../files/three.module.js";
+import ThreeGlobe from "../three-globe-js/threeGlobe.js";
+import { WebGLRenderer, Scene } from "../three-globe-js/three.module.js";
 import {
 PerspectiveCamera,
 AmbientLight,
@@ -11,11 +11,11 @@ Fog,
 // CameraHelper,
 PointLight,
 SphereGeometry,
-} from "../files/three.module.js";
-import { OrbitControls } from "../files/OrbitControls.js";
+} from "../three-globe-js/three.module.js";
+import { OrbitControls } from "../three-globe-js/OrbitControls.js";
 // import { createGlowMesh } from "three-glow-mesh";
-import { countries } from "../files/globe-data.js";
-import { travelHistory } from "../files/my-flights.js" ;
+import { countries } from "../three-globe-js/globe-data.js";
+import { travelHistory } from "../three-globe-js/my-flights.js" ;
 
 const container = document.getElementsByClassName("globe-container")[0];
 var renderer, camera, scene, controls;

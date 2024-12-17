@@ -5,19 +5,20 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "echo 'hello world !'"
+    "build": "./websplash --build ./src/",
+    "dev": "./websplash --serve ./src/"
   },
   "name": "neodon",
   "version": "1.0.0",
   "description": "Neodon Entreprise project",
-  "main": "public/js/main.js",
   "directories": {
-    "doc": "docs"
+    "doc": "doc"
   },
   "author": "Jad El Karchi",
   "license": "ISC",
   "devDependencies": {
     "buffer": "^6.0.3",
-    "process": "^0.11.10"
+    "process": "^0.11.10",
+    "svgo": "^3.3.2"
   }
 }

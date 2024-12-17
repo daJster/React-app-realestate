@@ -1,0 +1,100 @@
+#!/bin/bash
+
+# Function to display help
+function show_help() {
+    echo "Usage: splash [OPTIONS] [DIRECTORIES...]"
+    echo "
+Options:
+  -s, --serve   Serve the project(s) using Parcel (look for index.html in subdirectories).
+  -b, --build   Build the project(s) using Parcel (output to 'public').
+  -h, --help    Show this help message.
+
+Arguments:
+  DIRECTORIES   One or more directory paths to search for index.html files.
+"
+}
+
+# Function to find all index.html files in the specified directories
+function find_index_files() {
+    local directories=($@)
+    local index_files=()
+
+    for dir in "${directories[@]}"; do
+        if [ -d "$dir" ]; then
+            # Find all index.html files in subdirectories
+            files=$(find "$dir" -type f -name "index.html")
+            index_files+=($files)
+        else
+            echo "Error: Directory '$dir' does not exist." >&2
+            exit 1
+        fi
+    done
+
+    echo "${index_files[@]}"
+}
+
+# Parse command-line arguments
+command=""
+directories=()
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -s|--serve)
+            command="serve"
+            shift
+            ;;
+        -b|--build)
+            command="build"
+            shift
+            ;;
+        -h|--help)
+            show_help
+            exit 0
+            ;;
+        *)
+            directories+=($1)
+            shift
+            ;;
+    esac
+done
+
+# Ensure a command is specified
+if [ -z "$command" ]; then
+    echo "Error: No command specified. Use -h for help." >&2
+    exit 1
+fi
+
+# Ensure at least one directory is provided
+if [ ${#directories[@]} -eq 0 ]; then
+    echo "Error: No directories specified. Use -h for help." >&2
+    exit 1
+fi
+
+# Find all index.html files
+index_files=$(find_index_files "${directories[@]}")
+
+# Display projects line by line
+sorted_index_files=()
+for index_file in $index_files; do
+    if [[ $index_file == "${directories[0]}/index.html" ]]; then
+        sorted_index_files=($index_file "${sorted_index_files[@]}")
+    else
+        sorted_index_files+=($index_file)
+    fi
+done
+
+# Run the appropriate Parcel command on all index.html files at once
+if [ "$command" == "build" ]; then
+    echo "Building the following projects :"
+    for index_file in ${sorted_index_files[@]}; do
+        echo "- $index_file"
+    done
+    npx parcel build ${sorted_index_files[@]} --dist-dir public
+elif [ "$command" == "serve" ]; then
+    echo "Serving the following projects :"
+    for index_file in ${sorted_index_files[@]}; do
+        echo "- $index_file"
+    done
+    npx parcel serve ${sorted_index_files[@]}
+fi
+
+echo "Done."
