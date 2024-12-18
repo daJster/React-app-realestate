@@ -1,5 +1,5 @@
-import ThreeGlobe from "../three-globe-js/threeGlobe.js";
-import { WebGLRenderer, Scene } from "../three-globe-js/three.module.js";
+import ThreeGlobe from "../files/threeGlobe";
+import { WebGLRenderer, Scene } from "three";
 import {
 PerspectiveCamera,
 AmbientLight,
@@ -11,11 +11,10 @@ Fog,
 // CameraHelper,
 PointLight,
 SphereGeometry,
-} from "../three-globe-js/three.module.js";
-import { OrbitControls } from "../three-globe-js/OrbitControls.js";
-// import { createGlowMesh } from "three-glow-mesh";
-import { countries } from "../three-globe-js/globe-data.js";
-import { travelHistory } from "../three-globe-js/my-flights.js" ;
+} from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import countries from "../files/globe-data.json";
+import  travelHistory from "../files/my-flights.json" ;
 
 const container = document.getElementsByClassName("globe-container")[0];
 var renderer, camera, scene, controls;
@@ -44,15 +43,15 @@ function init() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
 
-    var dLight = new DirectionalLight(0xffffff, 1.4);
-    dLight.position.set(-800, 2000, 400);
+    var dLight = new DirectionalLight(0xffffff, 0.3);
+    dLight.position.set(-1000, 2000, 400);
     camera.add(dLight);
 
-    var dLight1 = new DirectionalLight(0x7982f6, 1);
+    var dLight1 = new DirectionalLight(0x7982f6, .5);
     dLight1.position.set(-200, 500, 200);
     camera.add(dLight1);
 
-    var dLight2 = new PointLight(0x8566cc, 1);
+    var dLight2 = new PointLight(0x8566cc, .2);
     dLight2.position.set(-200, 500, 200);
     camera.add(dLight2);
 

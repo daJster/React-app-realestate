@@ -1,4 +1,4 @@
-const travelHistory = {
+{
     "type": "FlightsCollection",
     "flights": [
         {
@@ -452,5 +452,3 @@ const travelHistory = {
     ]
     
 }
-
-export { travelHistory };
