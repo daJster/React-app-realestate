@@ -1,0 +1,98 @@
+# .github/workflows/ci-cd.yml
+name: Test project & Build project & Deploy on firebase hosting
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+    NODE_VERSION: '20.0.0'
+
+jobs:
+  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: |
+          npm run test
+          echo "Exit code: $?"
+
+  report:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Quality report on Code
+        run: |
+          npm run report
+          echo "Exit code: $?"
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the project
+        run: | 
+          npm run build
+          echo "Exit code: $?"
+
+      - name: Upload public directory
+        uses: actions/upload-artifact@v4 
+        with:
+          name: public
+          path: public/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download public directory
+        uses: actions/download-artifact@v4
+        with:
+          name: public
+          path: public/
+
+      - name: Deploy on Firebase hosting  
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NEODON_64DEC }}
+          channelId: live
+          projectId: neodon-64dec

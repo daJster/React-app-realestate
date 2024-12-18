@@ -1,0 +1,52 @@
+# .github/workflows/ci-cd.yml
+name: Test & report on project
+
+on:
+  push:
+    branches:
+      - dev
+
+env:
+    NODE_VERSION: '20.0.0'
+
+jobs:
+  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: |
+          npm run test
+          echo "Exit code: $?"
+
+  report:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Quality report on Code
+        run: |
+          npm run report
+          echo "Exit code: $?"
+
