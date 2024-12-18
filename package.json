@@ -6,9 +6,10 @@
     "three": "^0.154.0"
   },
   "scripts": {
-    "test": "echo 'Testing ...'",
-    "build": "./websplash --build ./src/",
-    "dev": "./websplash --serve ./src/"
+    "test": "NODE_OPTIONS='--no-warnings' echo 'Testing ...'",
+    "report": "NODE_OPTIONS='--no-warnings' ./websplash --report ./src/ ./test/",
+    "build": "NODE_OPTIONS='--no-warnings' ./websplash --build ./src/",
+    "dev": "NODE_OPTIONS='--no-warnings' ./websplash --serve ./src/"
   },
   "name": "neodon",
   "version": "1.0.0",
@@ -19,9 +20,16 @@
   "author": "Jad El Karchi",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.17.0",
     "@types/three": "^0.154.0",
     "buffer": "^6.0.3",
+    "eslint": "^9.17.0",
+    "eslint-plugin-html": "^8.1.2",
+    "eslint-plugin-json": "^4.0.1",
+    "eslint-plugin-stylelint": "^0.1.1",
+    "globals": "^15.14.0",
     "process": "^0.11.10",
     "svgo": "^3.3.2"
-  }
+  },
+  "type": "module"
 }

@@ -2,11 +2,12 @@
 
 # Function to display help
 function show_help() {
-    echo "Usage: splash [OPTIONS] [DIRECTORIES...]"
+    echo "Usage: websplash [OPTIONS] [DIRECTORIES...]"
     echo "
 Options:
   -s, --serve   Serve the project(s) using Parcel (look for index.html in subdirectories).
   -b, --build   Build the project(s) using Parcel (output to 'public').
+  -r, --report    Run ESLint on JavaScript files in the directory (ignoring specified files).
   -h, --help    Show this help message.
 
 Arguments:
@@ -33,6 +34,47 @@ function find_index_files() {
     echo "${index_files[@]}"
 }
 
+ignore_files=("threeGlobe")
+
+# Function to run ESLint on JavaScript files, excluding ignored files
+function run_eslint() {
+    local directories=($@)
+    local js_files=()
+
+    for dir in "${directories[@]}"; do
+        if [ -d "$dir" ]; then
+            found_files=$(find "$dir" -type f -name "*.js")
+            js_files+=($found_files)
+        else
+            echo "Error: Directory '$dir' does not exist." >&2
+            exit 1
+        fi
+    done
+
+    # Filter ignored files
+    filtered_js_files=()
+    for file in "${js_files[@]}"; do
+        filename=$(basename "$file" .js)
+        if [[ ! " ${ignore_files[@]} " =~ " $filename " ]]; then
+            filtered_js_files+=($file)
+        else
+            echo "Skipping $file (ignored)."
+        fi
+    done
+
+    # Run ESLint once on all files
+    if [ ${#filtered_js_files[@]} -gt 0 ]; then
+        echo "Linting the following files:"
+        printf "%s\n" "${filtered_js_files[@]}"
+        npx eslint "${filtered_js_files[@]}"
+        exit $?
+    else
+        echo "No files to lint."
+        exit 0
+    fi
+}
+
+
 # Parse command-line arguments
 command=""
 directories=()
@@ -46,6 +88,10 @@ while [[ $# -gt 0 ]]; do
             command="build"
             shift
             ;;
+        -r|--report)
+            command="report"
+            shift
+            ;;
         -h|--help)
             show_help
             exit 0
@@ -56,6 +102,7 @@ while [[ $# -gt 0 ]]; do
             ;;
     esac
 done
+
 
 # Ensure a command is specified
 if [ -z "$command" ]; then
@@ -82,13 +129,21 @@ for index_file in $index_files; do
     fi
 done
 
-# Run the appropriate Parcel command on all index.html files at once
-if [ "$command" == "build" ]; then
+
+if [ "$command" == "report" ]; then
+    echo "ESLint verification for JavaScript files in :"
+    for dir in "${directories[@]}"; do
+        echo "- $dir"
+    done
+    run_eslint "${directories[@]}"
+
+elif [ "$command" == "build" ]; then
     echo "Building the following projects :"
     for index_file in ${sorted_index_files[@]}; do
         echo "- $index_file"
     done
     npx parcel build ${sorted_index_files[@]} --dist-dir public
+
 elif [ "$command" == "serve" ]; then
     echo "Serving the following projects :"
     for index_file in ${sorted_index_files[@]}; do

@@ -6,11 +6,7 @@ AmbientLight,
 DirectionalLight,
 Color,
 Fog,
-// AxesHelper,
-// DirectionalLightHelper,
-// CameraHelper,
 PointLight,
-SphereGeometry,
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import countries from "../files/globe-data.json";
@@ -21,7 +17,6 @@ var renderer, camera, scene, controls;
 let mouseX = 0;
 let mouseY = 0;
 let windowHalfX = window.innerWidth / 2;
-let windowHalfY = window.innerHeight / 2;
 var Globe;
 
 
@@ -103,7 +98,7 @@ function initGlobe() {
         .showAtmosphere(false)
         .atmosphereColor("#3a228a")
         .atmosphereAltitude(0.25)
-        .hexPolygonColor((e) => {
+        .hexPolygonColor(() => {
             return "rgba(143, 95, 255, .7)";
         });
 
@@ -144,7 +139,6 @@ function onWindowResize() {
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
     windowHalfX = container.clientWidth / 1.5;
-    windowHalfY = container.clientHeight / 1.5;
     renderer.setSize(container.clientWidth , container.clientHeight);
 }
 
