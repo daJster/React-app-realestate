@@ -1,0 +1,35 @@
+{
+    "List" : [
+        {
+            "dom": ".container-big-screen",
+            "animation": "fadeInUp",
+            "subElement": true,
+            "delay": 0.3
+        },
+        {
+            "dom": ".container-small-screen",
+            "animation": "fadeInUp",
+            "subElement": false,
+            "delay": 0.3
+        },
+        {
+            "dom": ".return-home-page-link",
+            "animation": "fadeInDown",
+            "subElement": false,
+            "delay": 0.5
+        },
+        {
+            "dom": ".shape-circle-style.first",
+            "animation": "fadeInDown",
+            "subElement": false,
+            "delay": 0
+        },
+        {
+            "dom": ".shape-circle-style.second",
+            "animation": "fadeInUp",
+            "subElement": false,
+            "delay": 0
+        }
+        
+    ]
+}
