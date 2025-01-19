@@ -25,7 +25,7 @@ import { animateDomsWithObserver }  from "../files/utils.js";
 
 
 const navbarToggler = document.querySelector('.navbar-toggler');
-const buttonCertify = document.getElementsByClassName('button-certify-navbar-53')[0];
+const buttonCertify = document.getElementById('button-certify-navbar-53');
 
 if (navbarToggler && buttonCertify) {
     let isToggled = false; // Track the toggle state
@@ -48,5 +48,48 @@ if (navbarToggler && buttonCertify) {
     console.error('Navbar toggler or button-certify element not found!');
 }
 
+
+const typeEffectWrapper = (() => {
+    const words = ["Certify your ideas",
+                    "Take the spotlight",
+                    "Elevate your potential",
+                    "Improve your opportunities"
+                ];
+    const typingSpeed = 100;
+    const erasingSpeed = 40;
+    const delayBetweenWords = 4000;
+    
+    const dynamicTextElement = document.querySelector(".dynamic-text-123");
+    
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isErasing = false;
+    
+    function typeEffect() {
+      const currentWord = words[wordIndex];
+    
+      if (!isErasing) {
+        dynamicTextElement.innerHTML = currentWord.slice(0, charIndex++);
+        if (charIndex > currentWord.length) {
+          isErasing = true;
+          setTimeout(typeEffect, delayBetweenWords);
+        } else {
+          setTimeout(typeEffect, typingSpeed);
+        }
+      } else {
+        dynamicTextElement.innerHTML = currentWord.slice(0, charIndex--);
+        if (charIndex < 0) {
+          isErasing = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          charIndex = 0;
+          setTimeout(typeEffect, typingSpeed);
+        } else {
+          setTimeout(typeEffect, erasingSpeed);
+        }
+      }
+    }
+    
+    typeEffect();
+})();
 
 animateDomsWithObserver(animatedJsonData);
