@@ -52,7 +52,7 @@ if (navbarToggler && buttonCertify) {
 const typeEffectWrapper = (() => {
     const words = ["Certify your ideas",
                     "Take the spotlight",
-                    "Elevate your potential",
+                    "Unlock your potential",
                     "Improve your opportunities"
                 ];
     const typingSpeed = 100;

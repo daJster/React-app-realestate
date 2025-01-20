@@ -14,9 +14,9 @@
         },
         {
             "dom": ".dynamic-text-123",
-            "animation": "fadeInUp",
+            "animation": "fadeinUp",
             "subElement": false,
-            "delay": 0.1
+            "delay": 0.5
         },
         {
             "dom": ".sub-text-title-12",
@@ -130,7 +130,7 @@
             "dom": ".span-text-1st-container-features-18",
             "animation": "fadeInUp",
             "subElement": false,
-            "delay": 0.2
+            "delay": 0
         },
         {
             "dom": ".card-container-animate-1",
@@ -161,6 +161,30 @@
             "animation": "fadeInRight",
             "subElement": false,
             "delay": 0.2
+        },
+        {
+            "dom":".founder-image-col",
+            "animation": "fadeInLeft",
+            "subElement": false,
+            "delay": 0.3
+        },
+        {
+            "dom":".founder-comment-col",
+            "animation": "fadeInRight",
+            "subElement": false,
+            "delay": 0.5
+        },
+        {
+            "dom":".founder-comment-col-text-1",
+            "animation": "fadeInDown",
+            "subElement": false,
+            "delay": 0.6
+        },
+        {
+            "dom":".founder-comment-col-text-2",
+            "animation": "fadeInUp",
+            "subElement": false,
+            "delay": 0.6
         }
     ]
 }
