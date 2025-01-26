@@ -50,7 +50,7 @@ if (navbarToggler && buttonCertify) {
 
 
 const typeEffectWrapper = (() => {
-    const words = ["Certify your ideas",
+    const words = ["Certified ideas",
                     "Take the spotlight",
                     "Unlock your potential",
                     "Improve your opportunities"

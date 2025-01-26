@@ -97,16 +97,15 @@ a {
 @media (min-width: 810px) and (max-width: 1199px) {
     .front-page-4 {
         bottom: -38px;
-        height: var(--framer-aspect-ratio-supported, 429px);
         order: 1;
     }
 }
 
 
 .front-page-4 {
-    margin-top: -100px;
-    background: linear-gradient(180deg, #ffffff 0%, rgb(255, 255, 255, .6) 49.549549549549546%, var(--token-e652bd0c-7546-4328-9bff-af612263f671, rgb(239, 232, 255, .6)) 100%);
-    height: 635px;
+    margin-top: -80px;
+    background: linear-gradient(180deg, #ffffff 0%, rgba(223, 209, 254, 0.3) 49.549549549549546%, var(--token-e652bd0c-7546-4328-9bff-af612263f671, rgba(156, 117, 247, 0.5)) 100%);
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -135,6 +134,8 @@ a {
     width: 100%;             /* Full container width */
     height: 100%;           /* Full viewport height (optional) */
     justify-content: center;
+    position: relative;
+    left: 3vw;
 }
 
 .title-box-6 {
@@ -147,22 +148,34 @@ a {
 
 .dots-bg-8 {
     width: 100%; 
-    height: 600px;
+    height: 99vh;
     background-position: center;
     position: absolute;
     top: 0px;
     left: 0px;
+    opacity: 1;
+    z-index: -2;
+}
+
+.video-homepage-9 {
+    width: 100%;
+    height: 99vh;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .5;
     z-index: -1;
 }
 
 .title-dot-text-9 {
     width: 125px; 
-    height:28px; 
+    height: 28px; 
     gap: 8px; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    background-color: rgb(231, 221, 255); 
+    background-color: rgb(201, 179, 253); 
     border-radius: 5px;
 }
 
@@ -186,7 +199,7 @@ a {
     font-family: 'Inter', 'Inter Placeholder', sans-serif; 
     letter-spacing: -1px; 
     color: black; 
-    font-size: 72px; 
+    font-size: 80px; 
     width: 100%;
     font-weight: 600; 
     font-style: normal;
