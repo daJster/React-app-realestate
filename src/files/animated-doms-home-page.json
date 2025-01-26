@@ -103,6 +103,12 @@
             "delay": 0.2
         },
         {
+            "dom": ".container-features-text-wrapper-4",
+            "animation": "fadeInLeft",
+            "subElement": true,
+            "delay": 0.2
+        },
+        {
             "dom": ".container-card-features-2-animate-1",
             "animation": "fadeInUp",
             "subElement": true,
