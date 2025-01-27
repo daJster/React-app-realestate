@@ -353,13 +353,13 @@ p {
     height: fit-content;
 }
 
+
 .container-features-img-wrapper-1 {
     padding: 40px 40px; 
 }
 
 .row-features-element-21 {
     width: 100%;
-    padding: 10px 20px;
 }
 
 .container-card-desc {
@@ -369,21 +369,21 @@ p {
 
 .container-features-text-wrapper-1 {
     padding: 0px 50px !important;
-    background-color: rgba(245, 245, 245, .5);
+    background-color: rgba(255, 255, 255, .8);
     backdrop-filter: blur(10px);
     border-radius: 20px;
 }
 
 .container-features-text-wrapper-2 {
     padding: 0px 50px !important;
-    background-color: rgba(245, 245, 245, .5);
+    background-color: rgba(255, 255, 255, .8);
     backdrop-filter: blur(10px);
     border-radius: 20px;
 }
 
 .container-features-text-wrapper-3 {
-    padding: 0px 50px !important;
-    background-color: rgba(245, 245, 245, .5);
+    padding: 50px 50px !important;
+    background-color: rgba(255, 255, 255, .8);
     backdrop-filter: blur(10px);
     border-radius: 20px;
 }
@@ -438,17 +438,17 @@ p {
     }
 
     .container-features-text-wrapper-1 {
-        padding: 0px 10px !important;
+        padding: 20px 30px !important;
         margin-left: 15px !important;
     }
     
     .container-features-text-wrapper-2 {
-        padding: 0px 10px !important;
+        padding: 20px 30px !important;
         margin-left: 15px !important;
     }
     
     .container-features-text-wrapper-3 {
-        padding: 0px 10px !important;
+        padding: 20px 30px !important;
         margin-left: 15px !important;
     }
 
