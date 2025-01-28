@@ -20,7 +20,7 @@
 // const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 
-import animatedJsonData from "../files/animated-doms-home-page.json";
+import animatedJsonData from "./animated-doms-home-page.json";
 import { animateDomsWithObserver }  from "../files/utils.js";
 
 

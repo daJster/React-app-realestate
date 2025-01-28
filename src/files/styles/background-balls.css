@@ -1,0 +1,42 @@
+.background-circle-style{
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+
+.background-circle-style.narrow {
+    width: 60%
+}
+
+.background-circle-style .shape-circle-style{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape-circle-style:first-child{
+    background: linear-gradient(180deg, rgb(123, 67, 255, .7) 0%, rgb(93, 35, 228, .7) 100%);
+    left: -80px;
+    top: -80px;
+}
+
+.shape-circle-style:last-child{
+    background: linear-gradient(180deg, rgb(184, 154, 255, .7) 0%, rgb(108, 87, 158, .7) 100%);
+    right: -30px;
+    bottom: -80px;
+}
+
+
+.shape-circle-style.float {
+    animation-name: float;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-duration: 2s;
+}
+
+.shape-circle-style.second.float {
+    animation-duration: 3s;
+}

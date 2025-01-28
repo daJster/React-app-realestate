@@ -1,0 +1,22 @@
+{
+    "List" : [
+        {
+            "dom": ".navbar",
+            "animation": "fadeInDown",
+            "subElement": false,
+            "delay": 0
+        },        
+        {
+            "dom": ".shape-circle-style.first",
+            "animation": "fadeInDown",
+            "subElement": false,
+            "delay": 0
+        },
+        {
+            "dom": ".shape-circle-style.second",
+            "animation": "fadeInUp",
+            "subElement": false,
+            "delay": 0
+        }
+    ]
+}

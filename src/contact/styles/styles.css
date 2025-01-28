@@ -1,0 +1,22 @@
+body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: linear-gradient(to right, #8d77a2, #3c1a8d);
+    margin: 0;
+    padding: 0;
+}
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+.contact-container {
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,124 @@
+.navbar.navbar-1 {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+    align-items: center;
+    height: min-content;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.nav-link {
+    color:rgb(126, 126, 126);
+}
+
+.nav-link:hover{
+    color: rgb(0, 0, 0);
+}
+
+.img-logo-2 {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: inherit;
+    object-position: center center;
+    object-fit: cover;
+    border-radius: 1px;
+}
+
+a {
+    font-family: var(--framer-blockquote-font-family, var(--framer-link-font-family, var(--framer-font-family, Inter, Inter Placeholder, sans-serif)));
+    font-style: var(--framer-blockquote-font-style, var(--framer-link-font-style, var(--framer-font-style, normal)));
+    font-weight: var(--framer-blockquote-font-weight, var(--framer-link-font-weight, var(--framer-font-weight, 540)));
+    font-size: calc(var(--framer-blockquote-font-size, var(--framer-font-size, 14px))* var(--framer-font-size-scale, 1));
+    text-transform: var(--framer-blockquote-text-transform, var(--framer-link-text-transform, var(--framer-text-transform, none)));
+    text-decoration: var(--framer-blockquote-text-decoration, var(--framer-link-text-decoration, var(--framer-text-decoration, none)));
+    cursor: var(--framer-custom-cursors, pointer);
+    transition: all 0.5s ease;
+}
+
+
+.gradient-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--framer-blockquote-font-family, var(--framer-link-font-family, var(--framer-font-family, Inter, Inter Placeholder, sans-serif)));
+    background: linear-gradient(180deg,  rgb(139, 92, 246) /* {"name":"blue-500"} */ 0%, rgb(123, 67, 255) 100%);
+    border: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 20px;
+    border-radius: 10px; /* Roundy edges */
+    color: white;
+    width: auto;
+    width: auto;
+    box-shadow: rgba(30, 7, 81, 0.12) 0px 4px 6px 0px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.4s ease;
+}
+
+
+.button-text {
+    margin-right: 3px; /* Initial gap between text and arrow */
+    transition: transform 0.3s ease;
+}
+
+.arrow-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+
+.gradient-button:hover {
+    background: linear-gradient(180deg, rgb(123, 67, 255) 0%, rgb(139, 92, 246) 100%);
+    transform: scaleX(1.04);
+    background-size: 160% 160%;
+}
+
+.gradient-button:hover .button-text {
+    transform: translateX(-5px); /* Move text slightly left */
+}
+  
+.gradient-button:hover .arrow-container {
+    transform: translateX(1px); /* Move arrow slightly right */
+}
+
+.gradient-button:focus {
+    outline: none; /* Remove focus outline for a cleaner look */
+}
+
+
+.contact-a {
+    color: #8f5fff !important;
+    opacity: 0.7;
+} 
+
+.contact-a:hover {
+    color: rgb(76, 0, 255) !important;
+    opacity: 1;
+}
+
+
+.with-arrow {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.with-arrow::after {
+    content: '➔';
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotate(45deg);
+    font-size: 10px;
+    color: inherit;
+}  
