@@ -1,22 +1,149 @@
 body {
     overflow-x: hidden;
     overflow-y: scroll;
-    background: linear-gradient(to right, #8d77a2, #3c1a8d);
+    background: url("../../../images/neodon_bg.png");
     margin: 0;
     padding: 0;
 }
-
-
 
 html {
     scroll-behavior: smooth;
 }
 
+.row-support {
+    width: 100%;
+}
 
 .contact-container {
-    background-color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    background: radial-gradient(100% 50% at 0% 0%, rgb(142, 67, 254, .9) 0%, rgb(63, 0, 146, .9) 100%);
+    backdrop-filter: blur(5px);
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    border-radius: 15px;
+}
+
+.contact-header-container {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    text-transform: none;
+}
+
+.title-header-text, .page-title-text {
+    font-family: "Lexend", serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+.page-title-text {
+    font-size: 46px;
+}
+
+.subtitle-header-text {
+    font-family: Inter, Inter Placeholder, sans-serif;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 20px;
+    width: 250px !important;
+}
+
+
+.envelope-logo {
+    background: url("../../../images/envelope-icon.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 20px;
+    width: 20px;    
+}
+
+.text-wrapper {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: "Lexend", serif;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+p {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.logo-footer {
+    width: 45px;
+    height: 45px;
+    border-radius: 1px;
+}
+
+.footer-text {
+    font-family: 'Inter', 'Inter Placeholder', sans-serif; 
+    color: rgb(99, 99, 99); 
+    font-weight: 500; 
+    font-size: 17px;
+    text-align: justify;
+}
+
+.input {
+    border-radius: 6px;
+    border: none;
+    background: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255);
+    font-weight: 400;
+    font-family: 'Inter', 'Inter Placeholder', sans-serif;
+    font-size: 14px;
+    height: 40px;
+    width: 100%;
+    padding: 5px 10px;
+    transition: all .3s cubic-bezier(.44,0,.56,1) 0s;
+}
+
+.input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(255, 255, 255, .6);
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, .7);
+}
+
+.subject-select-input {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.option-value {
+    background-color: rgb(99, 99, 99);
+}
+
+.subject-text-area-input {
+    padding: 15px 15px;
+    height: 100px;
+    width: 100%;
+    max-height: 300px;
+}
+
+.submit-button {
+    border: none;
+    border-radius: 7px;
+    font-family: "Lexend", serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+    transition: all .3s cubic-bezier(.44,0,.56,1) 0s;
+}
+
+.submit-button:hover {
+    background-color: rgb(185, 185, 185);
+}
+
+.submit-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(255, 255, 255, .6);
+}
+
+@media screen and (max-width: 995px) { 
+
+    .footer-text {
+        font-size : 14px;
+    }
 }

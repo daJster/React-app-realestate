@@ -5,18 +5,18 @@
             "animation": "fadeInDown",
             "subElement": false,
             "delay": 0
-        },        
-        {
-            "dom": ".shape-circle-style.first",
-            "animation": "fadeInDown",
-            "subElement": false,
-            "delay": 0
         },
         {
-            "dom": ".shape-circle-style.second",
+            "dom": ".page-title-wrapper",
+            "animation": "fade",
+            "subElement": false,
+            "delay": 0.2
+        },
+        {
+            "dom": ".contact-container",
             "animation": "fadeInUp",
             "subElement": false,
-            "delay": 0
+            "delay": 0.2
         }
     ]
 }
